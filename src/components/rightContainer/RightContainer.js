@@ -7,7 +7,9 @@ const RightContainer = () => {
   return (
     <div className={styles.right}>
       <Login/>
-      <QuickLinks/>
+      <div className={styles.links}>
+      <QuickLinks />
+        </div>
     </div>
   )
 }

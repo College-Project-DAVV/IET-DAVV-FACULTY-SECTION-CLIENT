@@ -3,8 +3,9 @@
   justify-content: center;
   position: relative;
   align-items: center;
-  height: 500px;
-  width: 60vw;
+  //height: 500px;
+  //width: 60vw;
+  padding: 2rem;
   overflow: hidden;
   .slide {
     display: none;
@@ -17,15 +18,12 @@
     background-color: #eff1f7;
     text-align: center;
     padding-bottom: 2rem;
-    height: 27rem;
-    width: 32rem;
     border: 1px solid #B9B9B9;
     border-radius: 40px;
     img {
       width: 60%;
       padding-top: 2rem;
     }
-
     span {
       font-size: 1.2rem;
       font-weight: bold;
@@ -39,6 +37,7 @@
       margin-top: 10px;
       color: #666;
       padding: 0rem 2rem;
+      width: 500px;
     }
   }
 

@@ -33,7 +33,8 @@ const Login = () => {
     <div className={styles.login}>
       <div className={styles.head}>
         <img src={logo} alt='logo'/>
-        <div className={styles.heading}>WELCOME TO IET- DAVV FACULTY PORTAL</div>
+        <div className={styles.heading}>WELCOME TO</div>
+        <div className={styles.heading} style={{paddingTop:"0px"}}>IET- DAVV FACULTY PORTAL</div>
       </div>
       <form className={styles.form} onSubmit={handleLogin}  >
         <div className={styles.field} >

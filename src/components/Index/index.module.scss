@@ -1,7 +1,9 @@
 .container{
     display: flex;
-    justify-content: center;
+   justify-content: center;
     align-items: center;
+    max-height: 100vh;
+    overflow-y: scroll;
     .left{
         display: flex;
         align-items: center;
@@ -9,6 +11,7 @@
         width: 60vw;
         height: 100vh;
         background: #636BC1;
+        order: 1;
     }
     .right{
         width: 40vw;
@@ -16,17 +19,34 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        order: 1;
+    }
+    .links{
+        display: none;
+        width: 100%;
+        
     }
     @media screen and (max-width: 1024px) {
         flex-direction: column;
-        .left{
-            margin-top: 50rem;
-            padding: 3rem 0rem;
-            width: 100vw;
-        }
+        justify-content: unset;
         .right{
             padding: 3rem 0rem;
             width: 100vw;
+            order: 1;
         };
+        .left{
+            padding: 3rem 0rem;
+            width: 100vw;
+            order: 2;
+        }
+        .links{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            order: 3;
+        }
     }
+}
+.container::-webkit-scrollbar{
+    display: none;
 }

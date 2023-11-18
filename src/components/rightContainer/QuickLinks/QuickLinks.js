@@ -19,6 +19,9 @@ const QuickLinks = () => {
   return (
     <div className={styles.quickLink}>
         <div> Quick Links</div>
+        <div className={styles.links}>
+
+        
         {links.map((link, key) =>(
                 <a 
                 key={key}
@@ -29,6 +32,7 @@ const QuickLinks = () => {
                     {link.name}
                 </a>
         ))}
+        </div>
     </div>
   )
 }

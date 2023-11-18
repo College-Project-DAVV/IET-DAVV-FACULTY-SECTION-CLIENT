@@ -1,18 +1,33 @@
-.quickLink{
+.quickLink {
     font-size: 1.25rem;
     font-weight: 700;
     padding: 1rem 0rem;
     border: 2px solid #636BC1;
     border-radius: 1.25rem;
     width: 80%;
-    a{
+  
+    .links {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap; // Allow items to wrap to the next line
+  
+      a {
+        white-space: nowrap;
         color: #666;
         font-weight: 500;
         font-size: 0.9rem;
         padding: 1rem;
-        &:hover{
-            color: #636BC1;
+        text-decoration: none;
+        &:hover {
+          color: #636BC1;
         }
+      }
     }
-    //add media query for flex direction column for quick links
-}
+  
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      border-radius: 0px;
+    }
+  }
+  
