@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60vw;
+        height: 100vh;
+        background: #636BC1;
+    }
+    .right{
+        width: 40vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        .left{
+            margin-top: 50rem;
+            padding: 3rem 0rem;
+            width: 100vw;
+        }
+        .right{
+            padding: 3rem 0rem;
+            width: 100vw;
+        };
+    }
+}
