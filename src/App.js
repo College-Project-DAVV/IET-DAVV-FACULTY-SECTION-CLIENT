@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./App.module.scss";
 import Index from "./components/Index/Index";
 import ProtectedRoute from "./ProtectedRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   const [authorized, setAuthorized] = useState(false);

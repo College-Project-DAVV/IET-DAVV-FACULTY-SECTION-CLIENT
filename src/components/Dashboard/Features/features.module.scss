@@ -1,7 +1,8 @@
 .features{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-height: 100vh;
+    overflow: scroll;
     p{
         font-size: calc(1rem + 1.25vw);
         font-weight: 700;
@@ -10,4 +11,7 @@
     .cards{
         display: flex;
     }
+}
+.features::-webkit-scrollbar{
+    display: none;
 }

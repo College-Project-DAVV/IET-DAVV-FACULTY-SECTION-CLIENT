@@ -2,8 +2,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     max-width: 100%;
-    margin: 1rem 2rem;
+    margin: 1rem .7rem;
     .card{
+        transition: .27s;
         display: flex;
         flex-direction: column;
         background: white;
@@ -21,7 +22,6 @@
             border-radius: 1.25rem 1.25rem 0rem 0rem;
             .icon{
                 height: 80%;
-                // padding: 1rem 0rem;
             }
         }
         .title{
@@ -36,7 +36,10 @@
             font-size: 0.95rem;
             padding: 0rem 2rem 2rem 2rem ;
             margin: 0;
-            // width: 80%;
         }
+    }
+    .card:hover{
+        cursor: pointer;
+       scale: 1.03;
     }
 }

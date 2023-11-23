@@ -3,8 +3,8 @@ import styles from './teacherInfo.module.scss'
 import profile from '../../../assets/profile.svg'
 import email from '../../../assets/email2.svg'
 import phone from '../../../assets/phone.svg'
+import { useNavigate } from "react-router-dom";
 import logout from '../../../assets/logout.svg'
-import { Logout } from './Logout'
 const TeacherInfo = () => {
     const info = [
         {
@@ -14,6 +14,11 @@ const TeacherInfo = () => {
             profile : profile
         }
     ]
+    const navigate = useNavigate();
+    const Logout = () => {
+      localStorage.clear();
+      navigate("/");
+    };
   return (
     <div className={styles.teacher}>
       {info.map((item, key) => (
