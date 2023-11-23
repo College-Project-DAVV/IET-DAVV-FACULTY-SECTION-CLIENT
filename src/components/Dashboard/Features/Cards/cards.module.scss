@@ -1,0 +1,42 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 100%;
+    margin: 1rem 2rem;
+    .card{
+        display: flex;
+        flex-direction: column;
+        background: white;
+        border:1px solid #CDCDCD;
+        border-radius: 1.25rem;
+        filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25));
+        margin:1rem;
+        text-align: left;
+        .iconbg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: #6C74CA;
+            border-radius: 1.25rem 1.25rem 0rem 0rem;
+            .icon{
+                height: 80%;
+                // padding: 1rem 0rem;
+            }
+        }
+        .title{
+            color: #2B2A2A;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 2rem 2rem 0rem 2rem ;
+        }
+        p{
+            color: #2B2A2A;
+            font-weight: 400;
+            font-size: 0.95rem;
+            padding: 0rem 2rem 2rem 2rem ;
+            margin: 0;
+            // width: 80%;
+        }
+    }
+}

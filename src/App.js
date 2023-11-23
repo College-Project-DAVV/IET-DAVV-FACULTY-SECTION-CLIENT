@@ -1,10 +1,11 @@
 import styles from './App.module.scss';
-import Index from './components/Index/Index';
-
+import Dashboard from './components/Dashboard/Dashboard';
 function App() {
   return (
     <div className={styles.App}>
-     <Index/>
+      <div className={styles.dashboard}>
+        <Dashboard/>
+      </div>
     </div>
   );
 }

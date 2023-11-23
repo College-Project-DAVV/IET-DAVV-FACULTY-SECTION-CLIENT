@@ -1,0 +1,64 @@
+.teacher{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: 1px solid #8E8E8E;
+    background: #636BC0;
+    box-shadow: 4px 4px 35px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+    min-width: 325px;
+    position: fixed;
+    white-space: nowrap;
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+        height: 92vh; 
+        .profile{
+            width: 8rem;
+        }
+        .name{
+            font-size: 1.7rem;
+            font-weight: 600;
+            padding: 1rem 0rem 2rem 0rem;
+        }
+        .field{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: flex-start;
+            padding: 0.5rem 2rem;
+            .head{
+                font-size: 1.1rem;
+                font-weight: 700;
+                
+                padding: 0rem 1rem;
+            }
+            .value{
+                font-size: 1.1rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+    .logout {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 8vh;
+        align-items: center; 
+        background-color: #eff1f7;
+        color: black;
+        font-size: 1.1rem;
+        font-weight: 500;       
+        transition: .3s;
+        p {
+          padding-left: .7rem;
+        }
+      }
+      .logout:hover {
+        background-color: rgb(255, 87, 87);
+        cursor: pointer;
+        color: #ffffff;
+      }
+}

@@ -1,0 +1,20 @@
+.dashboard{
+    display: flex;
+    background: #EFF1F7;
+    justify-content: flex-end;
+    .teacherInfo{
+        position: fixed;
+        top:0;
+        left:0;
+        width: 325px;
+        @media screen and (max-width : 768px) {
+            display: none;
+        }
+    } 
+    .features{
+        width: calc(100% - 350px);
+        @media screen and (max-width : 768px) {
+            width: 100%;
+        }
+    }
+}
