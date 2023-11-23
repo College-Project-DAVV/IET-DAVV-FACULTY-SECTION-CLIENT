@@ -3,10 +3,10 @@ import Login from './Login/Login'
 import QuickLinks from './QuickLinks/QuickLinks';
 import styles from './rightContainer.module.scss';
 
-const RightContainer = () => {
+const RightContainer = ({setAuthorized}) => {
   return (
     <div className={styles.right}>
-      <Login/>
+      <Login setAuthorized={setAuthorized}/>
       <div className={styles.links}>
       <QuickLinks />
         </div>
