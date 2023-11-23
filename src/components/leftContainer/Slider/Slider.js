@@ -31,13 +31,6 @@ const Slider = () => {
       icon: attendance,
     },
   ];
-  const nextSlide = () => {
-    setSlideIndex((prevIndex) => (prevIndex + 1) % data.length);
-  };
-
-  const prevSlide = () => {
-    setSlideIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
-  };
 
   const moveDot = (index) => {
     setSlideIndex(index);

@@ -1,0 +1,13 @@
+.features{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    p{
+        font-size: calc(1rem + 1.25vw);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .cards{
+        display: flex;
+    }
+}
