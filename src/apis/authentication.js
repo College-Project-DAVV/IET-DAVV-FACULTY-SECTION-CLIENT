@@ -1,5 +1,4 @@
 export const Authenticate=(UserId,password)=> {
-  console.log(UserId,password)
     const SERVER_BASE_URL = process.env.REACT_APP_LDAP_URL;
       const apiUrl = `${SERVER_BASE_URL}/authentication`;
       return  fetch(apiUrl, {
@@ -10,7 +9,10 @@ export const Authenticate=(UserId,password)=> {
           body: JSON.stringify({"UserId":UserId,"password":password}), // Convert the data to a JSON string
         })
           .then((response) => {
-            return response;
+            if(!response.ok){
+              return 401;
+            }
+            return response.json();
           })
          
           .catch((error) => {
