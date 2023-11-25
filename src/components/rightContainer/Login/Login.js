@@ -40,14 +40,15 @@ const Login = ({ setAuthorized }) => {
           setAuthorized(false);
           return;
         }
+        if(response.details){
           setAuthorized(true);
           localStorage.setItem("Authorized", true);
           localStorage.setItem("user", JSON.stringify(response.details));
           setAuth(true);
           setAuthorized(true);
           setSessionCookie(formData.UserId,formData.password);
-          
           navigate("/dashboard");
+        }
       })
       .catch((err) => {
         console.log(err);
