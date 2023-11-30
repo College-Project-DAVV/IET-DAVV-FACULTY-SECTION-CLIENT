@@ -6,10 +6,12 @@ import marks from "../../../../assets/marks.svg";
 import dqac from "../../../../assets/dqac.svg";
 import downloads from "../../../../assets/downloads.svg";
 import feedback from "../../../../assets/feedback.svg";
+import {useNavigate} from "react-router-dom";
 import {
   getSessionCookie
 } from "../Functions/Function";
 const Cards = () => {
+  const navigate = useNavigate();
     const username = getSessionCookie("username");
     const password = getSessionCookie("pass");
     const currentUrl = window.location.href;
@@ -75,9 +77,16 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
     },
   ];
   const submitForm=(id)=>{
-    console.log(id);
     var form = document.getElementById(id);
     form.submit();
+  }
+  const searchStudents = ()=>{
+    if(localStorage.getItem("FetchUserToken")){
+      navigate("/search")
+    }
+    else{
+      navigate("/googleauth");
+    }
   }
   return (
     <div className={styles.cards}>
@@ -88,7 +97,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
         <input type="hidden" name={feature.password} id={feature.password} value={password?password:"null"} />
         <input type="hidden" name={feature.flag} id={feature.flag} value='faculty'/>
       </form>
-        <div className={styles.card} key={key} onClick={()=>{submitForm(key)}}>
+        <div className={styles.card} key={key} onClick={()=>{feature.title==="Search Students"?searchStudents(): submitForm(key)}}>
           <div className={styles.iconbg}>
             <img src={feature.icon} alt="icon" className={styles.icon} />
           </div>
