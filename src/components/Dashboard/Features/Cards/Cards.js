@@ -17,7 +17,7 @@ const Cards = () => {
       title: "Search Students",
       desc: "This allows you to search students using their name, roll number, email, branch, year and other details",
       icon: search,
-      url:"https://iet-davv-student-aggregation-system.netlify.app",
+      url: (localStorage.getItem("FetchUserToken") ?"http://localhost:3000/search":"http://localhost:3000/googleauth"),
       request:"GET"
     },
     {
