@@ -12,12 +12,15 @@ import {
 const Cards = () => {
     const username = getSessionCookie("username");
     const password = getSessionCookie("pass");
+    const currentUrl = window.location.href;
+    const urlParts = currentUrl.split('/');
+const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
   const features = [
     {
       title: "Search Students",
       desc: "This allows you to search students using their name, roll number, email, branch, year and other details",
       icon: search,
-      url: (localStorage.getItem("FetchUserToken") ?"http://localhost:3000/search":"http://localhost:3000/googleauth"),
+      url: (localStorage.getItem("FetchUserToken") ?`${baseUrl}/search`:`${baseUrl}/googleauth`),
       request:"GET"
     },
     {
