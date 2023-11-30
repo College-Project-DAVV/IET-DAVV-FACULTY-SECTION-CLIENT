@@ -1,0 +1,17 @@
+.features{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow: scroll;
+    p{
+        font-size: calc(1rem + 1.25vw);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    .cards{
+        display: flex;
+    }
+}
+.features::-webkit-scrollbar{
+    display: none;
+}
