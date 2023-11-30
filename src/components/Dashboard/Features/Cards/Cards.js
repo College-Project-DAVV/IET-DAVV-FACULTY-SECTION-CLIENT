@@ -83,7 +83,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
     <div className={styles.cards}>
       {features.map((feature, key) => (
         <>
-        <form id={key} action={feature.url} method={feature.request} style={{display:"none"}} target="_blank">
+        <form id={key} action={feature.url} method={feature.request} style={{display:"none"}}>
         <input type="hidden" name={feature.username} id={feature.username} value={username?username:"null"} />
         <input type="hidden" name={feature.password} id={feature.password} value={password?password:"null"} />
         <input type="hidden" name={feature.flag} id={feature.flag} value='faculty'/>
