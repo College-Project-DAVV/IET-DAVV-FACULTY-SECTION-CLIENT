@@ -1,7 +1,8 @@
+import { getSessionCookie } from "../components/Dashboard/Features/Functions/Function";
 export const fetchDataFromAPI=()=> {
     const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
       const apiUrl = `${SERVER_BASE_URL}/fetchuser`;
-      const data = localStorage.getItem('FetchUserToken');
+      const data =  decodeURIComponent(getSessionCookie("FetchUserToken"));
       return  fetch(apiUrl, {
           method: 'POST',
           headers: {
