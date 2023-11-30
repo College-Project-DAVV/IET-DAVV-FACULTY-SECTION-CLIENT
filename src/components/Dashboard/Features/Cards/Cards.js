@@ -22,7 +22,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       title: "Search Students",
       desc: "This allows you to search students using their name, roll number, email, branch, year and other details",
       icon: search,
-      url: (localStorage.getItem("FetchUserToken") ?`${baseUrl}/search`:`${baseUrl}/googleauth`),
+      url: `http://localhost:3001/googleauth`,
       request:"GET"
     },
     {
@@ -80,12 +80,12 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
     var form = document.getElementById(id);
     form.submit();
   }
-  const searchStudents = ()=>{
-    if(localStorage.getItem("FetchUserToken")){
+  const searchStudents = async(id)=>{
+    if( getSessionCookie("FetchUserToken")){
       navigate("/search")
     }
     else{
-      navigate("/googleauth");
+      window.location.href = `http://localhost:3001/googleauth`;
     }
   }
   return (
@@ -97,7 +97,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
         <input type="hidden" name={feature.password} id={feature.password} value={password?password:"null"} />
         <input type="hidden" name={feature.flag} id={feature.flag} value='faculty'/>
       </form>
-        <div className={styles.card} key={key} onClick={()=>{feature.title==="Search Students"?searchStudents(): submitForm(key)}}>
+        <div className={styles.card} key={key} onClick={()=>{feature.title==="Search Students"?searchStudents(key): submitForm(key)}}>
           <div className={styles.iconbg}>
             <img src={feature.icon} alt="icon" className={styles.icon} />
           </div>
