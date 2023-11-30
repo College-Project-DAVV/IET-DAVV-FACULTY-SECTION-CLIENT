@@ -85,7 +85,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       navigate("/search")
     }
     else{
-      window.location.href = `http://localhost:3001/googleauth`;
+      window.location.href = process.env.REACT_APP_REDIRECT_URI;
     }
   }
   return (
