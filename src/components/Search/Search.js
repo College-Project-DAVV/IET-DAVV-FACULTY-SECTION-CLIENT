@@ -6,7 +6,9 @@ import StudentModal from "../Modals/StudentModal/StudentModal";
 import TeacherModal from "../Modals/TeacherModal/TeacherModal";
 import {fetchDataFromAPI} from "../../apis/fetchallusers"
 import ProgressBar from "../ProgressBar/ProgressBar";
+import { useNavigate } from "react-router-dom";
 export default function Search() {
+  const navigate = useNavigate();
   const [data,setData] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -52,6 +54,9 @@ export default function Search() {
     handleSearch(query);
   };
   useEffect(()=>{
+    if(!localStorage.getItem("UserToken")){
+      navigate("/dashboard")
+    }
     fetchDataFromAPI().then((res)=>{
       setFetch(false);
       setData(res);
@@ -60,6 +65,9 @@ export default function Search() {
   return (
     <div>
       <div className={styles.searchbarContainer}>
+        <p onClick={()=>{
+          navigate("../dashboard");
+        }} className={styles.gotohome}>Go To Home</p>
         <form className={styles.searchForm}>
           <input
             type="text"
