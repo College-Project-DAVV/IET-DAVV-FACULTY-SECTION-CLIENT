@@ -22,7 +22,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       title: "Search Students",
       desc: "This allows you to search students using their name, roll number, email, branch, year and other details",
       icon: search,
-      url: `http://localhost:3001/googleauth`,
+      url: `${baseUrl}`,
       request:"GET"
     },
     {
@@ -81,11 +81,11 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
     form.submit();
   }
   const searchStudents = async(id)=>{
-    if( getSessionCookie("FetchUserToken")){
-      navigate("/search")
+    if( getSessionCookie("UserToken") && localStorage.getItem("UserToken")){
+      //navigate("/search")
     }
     else{
-      window.location.href = process.env.REACT_APP_REDIRECT_URI;
+      navigate("/googleauth");
     }
   }
   return (

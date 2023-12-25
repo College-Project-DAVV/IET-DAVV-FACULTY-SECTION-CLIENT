@@ -5,6 +5,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Search from "./components/Search/Search";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./components/rightContainer/Login/google_auth";
 function App() {
   const [authorized, setAuthorized] = useState(false);
   
@@ -21,6 +22,7 @@ function App() {
             element={<ProtectedRoute authorized={authorized} elements={<div className={styles.dashboard}><Dashboard/></div>}/>}
           />
           <Route path="/search" element={<div className={styles.search}><Search/></div>} />
+          <Route path="/googleauth" element={<div className={styles.login}><Login/></div>} />
         </Routes>
       </Router>
     </div>
