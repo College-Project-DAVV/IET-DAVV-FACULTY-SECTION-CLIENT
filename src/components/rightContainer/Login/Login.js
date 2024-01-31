@@ -6,7 +6,7 @@ import password from "../../../assets/password.svg";
 import eyeOpen from "../../../assets/eyeOpen.svg";
 import eyeClosed from "../../../assets/eyeClosed.svg";
 import { Authenticate } from "../../../apis/authentication";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const initial = { UserId: "", password: "" };
 
 const Login = ({ setAuthorized }) => {
@@ -98,6 +98,7 @@ const Login = ({ setAuthorized }) => {
         {!authorized && <p className={styles.invalid}>Invalid Credentials!!</p>}
         <button className={styles.loginbtn}> Log in</button>
       </form>
+      <Link to="/resetpassword">forgot password?</Link>
     </div>
   );
 };
