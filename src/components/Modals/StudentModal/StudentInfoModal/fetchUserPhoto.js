@@ -1,5 +1,5 @@
 export const fetchDataFromAPI=(memberid)=> {
-    const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL;
+    const SERVER_BASE_URL = process.env.REACT_APP_FETCH_USER;
       const apiUrl = `${SERVER_BASE_URL}/userphoto`;
       const data = localStorage.getItem('FetchUserToken');
       return  fetch(apiUrl, {
