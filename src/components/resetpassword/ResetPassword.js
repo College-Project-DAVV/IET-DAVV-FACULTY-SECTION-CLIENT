@@ -4,6 +4,7 @@ import { OTP } from "../../apis/OTP"
 import NewPassword from './NewPassword';
 import styles from './ResetPassword.module.scss';
 import reset from '../../assets/resetIcon.svg';
+import Loadbar from '../Loadbar/Loadbar';
 export default function ResetPassword() {
     const [userid, setUserID] = useState(null);
     const [email, setEmail] = useState(null);
@@ -40,7 +41,7 @@ export default function ResetPassword() {
         
 
     }
-    const sendOTP = (e) => {
+    const sendOTP = async(e) => {
         e.preventDefault();
         setLoading(true);
         OTP(email).then((result) => {
@@ -49,6 +50,7 @@ export default function ResetPassword() {
             setOtpSent(true);
             setLoading(false);
         })
+     
 
     }
     return (
@@ -67,14 +69,15 @@ export default function ResetPassword() {
                     onChange={handleInputChange}
                     disabled={email && true}
                 />
-                <button onClick={handlesubmit} disabled={email && true}>Submit</button>
+                
+                {loading ? <Loadbar /> : <button onClick={handlesubmit} disabled={email && true && loading}>Submit</button>}
             </form>}
             {email && !auth && !otpSent && 
             // {email && 
             <div className={styles.field}>
                 <span>Send OTP to email : {email}</span>
                 <p>We will send a One Time password to your email which you have to enter here to continue to reset your password.</p>
-                <button onClick={sendOTP} disabled={loading} >Send OTP</button>
+                {loading ? <Loadbar /> : <button onClick={sendOTP} disabled={loading} >Send OTP</button>}
             </div> 
              }  
             {code && !auth && otpSent &&
@@ -86,14 +89,11 @@ export default function ResetPassword() {
                             placeholder="Enter OTP here"
                             value={verifyotp || ''}
                             onChange={handleInputChange2}
-                        />
-                        <button onClick={handleverify} >Verify</button>
+                        />    
+                        {loading ? <Loadbar /> : <button onClick={handleverify} >Verify</button>}
                     </form> 
             } 
-            {
-                auth && 
-                <NewPassword userid={userid} />
-            }
+            {auth && <NewPassword userid={userid} />}
         </div>
     );
 }
