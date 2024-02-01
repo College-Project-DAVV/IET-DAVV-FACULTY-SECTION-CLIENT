@@ -95,10 +95,11 @@ const Login = ({ setAuthorized }) => {
             onClick={Toggle}
           />
         </div>
+        <Link to="/resetpassword" className={styles.forgot}>forgot password?</Link>
         {!authorized && <p className={styles.invalid}>Invalid Credentials!!</p>}
         <button className={styles.loginbtn}> Log in</button>
       </form>
-      <Link to="/resetpassword">forgot password?</Link>
+      
     </div>
   );
 };
