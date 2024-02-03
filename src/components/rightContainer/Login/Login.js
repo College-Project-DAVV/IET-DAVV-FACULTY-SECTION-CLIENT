@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import styles from "./login.module.scss";
 import logo from "../../../assets/collegeLogo.svg";
-import email from "../../../assets/email.svg";
+import userid from "../../../assets/userid.svg";
 import password from "../../../assets/password.svg";
 import eyeOpen from "../../../assets/eyeOpen.svg";
 import eyeClosed from "../../../assets/eyeClosed.svg";
 import { Authenticate } from "../../../apis/authentication";
 import { Link, useNavigate } from "react-router-dom";
+import Loadbar from "../../Loadbar/Loadbar";
 const initial = { UserId: "", password: "" };
 
 const Login = ({ setAuthorized }) => {
   const [showpassword, setshowpassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(initial);
   const [authorized, setAuth] = useState(true);
   const navigate = useNavigate();
@@ -32,12 +34,14 @@ const Login = ({ setAuthorized }) => {
   }
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     Authenticate(formData.UserId, formData.password)
       .then((response) => {
         setFormData(initial);
         if(response===401){
           setAuth(false);
           setAuthorized(false);
+          setLoading(false);
           return;
         }
         if(response.details){
@@ -47,6 +51,7 @@ const Login = ({ setAuthorized }) => {
           setAuth(true);
           setAuthorized(true);
           setSessionCookie(formData.UserId,formData.password);
+          setLoading(false);
           navigate("/dashboard");
         }
       })
@@ -68,7 +73,7 @@ const Login = ({ setAuthorized }) => {
       </div>
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.field}>
-          <img src={email} alt="UserId" />
+          <img src={userid} alt="UserId" />
           <input
             name="UserId"
             placeholder="UserId"
@@ -97,7 +102,8 @@ const Login = ({ setAuthorized }) => {
         </div>
         <Link to="/resetpassword" className={styles.forgot}>forgot password?</Link>
         {!authorized && <p className={styles.invalid}>Invalid Credentials!!</p>}
-        <button className={styles.loginbtn}> Log in</button>
+        
+        {loading ? <Loadbar /> : <button className={styles.loginbtn}> Log in</button>}
       </form>
       
     </div>

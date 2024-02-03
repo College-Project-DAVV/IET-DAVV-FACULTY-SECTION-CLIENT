@@ -38,8 +38,6 @@ export default function ResetPassword() {
             setEmail(result.details.email);
             setLoading(false);
         })
-        
-
     }
     const sendOTP = async(e) => {
         e.preventDefault();
@@ -50,8 +48,6 @@ export default function ResetPassword() {
             setOtpSent(true);
             setLoading(false);
         })
-     
-
     }
     return (
         <div className={styles.reset}>
@@ -60,7 +56,6 @@ export default function ResetPassword() {
                     <div className={styles.head}>Reset Password</div>
             </div>
             {!auth && !email && !otpSent && <form>
-            {/* {!auth && <form> */}
                 <p>Enter User Id</p>
                 <input
                     name="userid"
@@ -69,11 +64,9 @@ export default function ResetPassword() {
                     onChange={handleInputChange}
                     disabled={email && true}
                 />
-                
                 {loading ? <Loadbar /> : <button onClick={handlesubmit} disabled={email && true && loading}>Submit</button>}
             </form>}
             {email && !auth && !otpSent && 
-            // {email && 
             <div className={styles.field}>
                 <span>Send OTP to email : {email}</span>
                 <p>We will send a One Time password to your email which you have to enter here to continue to reset your password.</p>
@@ -81,7 +74,6 @@ export default function ResetPassword() {
             </div> 
              }  
             {code && !auth && otpSent &&
-            // {code && 
                      <form style={{paddingTop : "1rem"}}>
                         <p>Enter 4-digit OTP code sent to your email</p>
                         <input
@@ -92,7 +84,7 @@ export default function ResetPassword() {
                         />    
                         {loading ? <Loadbar /> : <button onClick={handleverify} >Verify</button>}
                     </form> 
-            } 
+            }  
             {auth && <NewPassword userid={userid} />}
         </div>
     );
