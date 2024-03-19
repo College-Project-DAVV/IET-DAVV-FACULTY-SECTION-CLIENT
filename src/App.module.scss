@@ -15,4 +15,13 @@
     align-self: flex-start;
     justify-self: flex-start;
   }
+  .feedback{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid red;
+    padding: 30px 50px;
+
+  }
 }
