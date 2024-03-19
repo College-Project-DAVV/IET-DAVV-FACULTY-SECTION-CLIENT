@@ -12,9 +12,22 @@
         }
     } 
     .features{
-        width: calc(100% - 350px);
+        width: calc(100% - 325px);
         @media screen and (max-width : 768px) {
             width: 100%;
         }
+    }
+    .feedbackContainer{
+        width: calc(100% - 350px);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+        @media screen and (max-width : 768px) {
+            width: 100%;
+            
+        }
+        
     }
 }
