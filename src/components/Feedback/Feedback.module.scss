@@ -25,10 +25,17 @@
     display: flex;
     flex-direction: column;
     width: 95%;
-    gap: 15px;
+    gap: 25px;
+    border: 2px solid #6368C0;
+    border-radius: 10px;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
     margin-top: 20px;
   
   }
+  
   .container_header {
     height: 40px;
     background-color: #eff1f7;
@@ -61,17 +68,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  
     .indexCount {
       border: 1px solid #c1c1c1;
       border-radius: 50%;
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin: 0px 10px;
+      margin: 0px 5px;
     }
     gap: 5px;
   }
@@ -79,7 +85,7 @@
   .card_content {
     width: 95%;
     height: 100%;
-    border-left: 1px solid #c1c1c1;
+    // border-left: 1px solid #c1c1c1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,6 +111,8 @@
         font-size: 0.7rem;
         font-weight: 400;
         margin-left: 10px;
+
+        
       }
       .cardHeadingValues {
           font-size: 0.8rem;
@@ -163,15 +171,21 @@
     align-items: center;
     overflow-y: auto;
     overflow-x: auto;
+    background-color: #c3c6e94b;
+    font-family:'Arial';
 
-font-size: small;
+font-size: 1rem;
     .backButtonContainer{
-      width: 80%;
+      width: 94%;
       display: flex;
       margin-top: 20px;
+      border-radius: 10px;
+      padding: 20px 5px;
 
       flex-direction: column;
       align-items: flex-start;
+      border: 2px solid #6368C0;
+      background-color: #fff;
       span{
         background-color: #47529a;
         color: #fff;
@@ -544,5 +558,66 @@ text-align: left;
 .nofeedbackContainer{
   font-size: 0.9rem;
   font-weight: bold;
+  
+}
+
+
+.card_content_startTIme{
+  width: 100%;
+display: flex;
+justify-content: end;
+position: relative;
+bottom: 7%;
+
+
+div {
+  background-color: #47529a;
+  color: #ccc;
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+}
+
+
+
+
+.activeContainer{
+  margin:30px 0px;
+  width: 95%;
+  background-color: #fff;
+  display: flex;
+  height: 70px;
+  justify-content: center;
+
+  align-items: center;
+  
+  border: 2px solid #6368C0;
+  border-radius: 10px;
+  div{
+    
+  cursor: pointer;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    align-items: center;
+    font-size: 1rem;
+width: 20%;
+text-align: center;
+padding: 5px 10px;
+  }
+  .activefeed{
+    color: #6368C0;
+    border-bottom: 3px solid  #6368C0;
+    
+
+
+  }
   
 }

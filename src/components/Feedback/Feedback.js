@@ -7,10 +7,14 @@ import {
   getFeedback,
 } from "../../actions/feedbackSession";
 import { getSession } from "../../actions/session";
-import { formatDate, formatDateToAMPM,isPastDate, } from "../../actions/exportingFunctions";
+import { calculateTimeDifference, formatDate, formatDateToAMPM,isPastDate, } from "../../actions/exportingFunctions";
 import { addSubject, deleteSubjects, getSubjects } from "../../actions/subjects";
 import { MdArrowCircleLeft } from "react-icons/md";
 import { MdAddCircle } from "react-icons/md";
+import TimerComponent from "./TimerComponent";
+import { MdOutlineArchive } from "react-icons/md";
+import { MdLibraryBooks } from "react-icons/md";
+import { MdOutlineDashboard } from "react-icons/md";
 
 
 const Feedback = ({setBOOl}) => {
@@ -32,6 +36,7 @@ const Feedback = ({setBOOl}) => {
   const [addMember,setAddMember]=useState(false)
   
   const [selectedSubject,setSelectedSubject]=useState({});
+  const [active,setActive]=useState(2);
   
   const handleCreate = async () => {
     setCreate(true);
@@ -150,7 +155,33 @@ const res = await addSubject(newitem);
     );
   });
 
+  function checktimer(item)
+  {
+    const currentTime = new Date().getTime();
+  
+  const startss = new Date(item).getTime();
+  const isStartTimePassed = currentTime> startss;
+  return isStartTimePassed;
+  }
+  function TimerBox({ item }) {
+    
+  const currentTime = new Date().getTime();
+  
+  const startss = new Date(item.startTime).getTime();
+  const isStartTimePassed = currentTime> startss;
+  
+    return (
+      <div className={`${styles.card_content_startTIme} ${isStartTimePassed ? styles.completed : ''}`}>
+        <div>
+          <span className={styles.cardHeadingValues}>
+            {isStartTimePassed ? '   Completed' : <TimerComponent item={item} />}
+          </span>
+        </div>
+      </div>
+    );
+  }
 
+  const currentDate = new Date();
   const TableComponnet = ()=>{
 
     return(
@@ -185,16 +216,25 @@ const res = await addSubject(newitem);
     </div>
     )
   }
+
   return (
     
     <div className={styles.containerFeedbackMain}>
-      <div className={styles.backButtonContainer}><span  onClick={()=>setBOOl(false)}><MdArrowCircleLeft style={{width:'25px' , height:'25px'}} />Go Back To Dashboard</span></div>
+     
+      <div className={styles.activeContainer}>
+        
+      <div className={active==0 && styles.activefeed} onClick={()=>setBOOl(false)}><MdOutlineDashboard/>Dashboard</div>
+        <div className={active ===1&& styles.activefeed} onClick={()=>setActive(1)}><MdLibraryBooks/>Active Feedbacks</div>
+
+        <div className={active===2 && styles.activefeed } onClick={()=>setActive(2)}><MdOutlineArchive/>Archived Feedbacks</div>
+      </div>
       <div className={styles.feedbackContainer_Card}>
-        { feedback.length>0? feedback.map((item, index) => (
-          <div className={styles.card_Container}>
+        { feedback.length>0? feedback.map((item, index) => ( 
+     ((!checktimer(item.startTime) && active===1) || (checktimer(item.startTime) && active===2) ) &&    (<div className={styles.card_Container}>
             <span className={styles.indexCount}>{index + 1}</span>
             <div className={styles.card_content}>
-              <div className={styles.card_content_child}>
+            <TimerBox item={item}/>
+            <div className={styles.card_content_child}>
                 <div>
                   <span className={styles.cardHeadings}>Class :</span>
                   <span
@@ -233,6 +273,8 @@ const res = await addSubject(newitem);
                 </div>
           
               </div>
+        
+   
               <div className={styles.card_content_child}>
                 <div>
                   <span className={styles.cardHeadings}>Subject Name :</span>
@@ -250,12 +292,12 @@ const res = await addSubject(newitem);
             <div className={styles.card_container_buttons}>
               {isPastDate(item.endTime) && <span className={styles.buttonCard} onClick={(e)=>{
               handleFeedbackEdit(item,index)
-            }}>Edit</span>}
+            }}>{item.subjects.length===0?" Add Subjects":"Edit"}</span>}
               <span className={styles.buttonCard} onClick={(e)=>handleViewDetails(item)}>View Details</span>
              
             </div>
           </div>
-        )):<div className={styles.nofeedbackContainer}>No FeedBack </div>}
+        ))):<div className={styles.nofeedbackContainer}>No FeedBack </div>}
       </div>
       {create && (
         <div className={styles.create_feedback_container}>
@@ -306,7 +348,7 @@ const res = await addSubject(newitem);
             </div>
 
             <div className={styles.inputContainer}>
-              <div className={styles.inputheading}> Class Teacher</div>
+              <div className={styles.inputheading}>Faculty Name</div>
               <div className={styles.inputfeild}>
                 <input
                   placeholder="Search class"

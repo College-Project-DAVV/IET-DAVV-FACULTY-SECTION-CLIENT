@@ -61,3 +61,31 @@
     const formattedTime = `${hours}:${minutes}`;
     return formattedTime;
   }
+
+   export function calculateTimeDifference(startTime) {
+    // Convert the start time to a Date object
+    const startDate = new Date(startTime);
+
+    // Get the current time
+    const currentDate = new Date();
+
+    // Calculate the time difference in milliseconds
+    const timeDifference =  startDate.getTime()-currentDate.getTime() ;
+
+    // Convert the time difference from milliseconds to seconds
+    const secondsDifference = Math.floor(timeDifference / 1000);
+
+    // Calculate days, hours, minutes, and remaining seconds
+    const days = Math.floor(secondsDifference / (24 * 3600));
+    const hours = Math.floor((secondsDifference % (24 * 3600)) / 3600);
+    const minutes = Math.floor((secondsDifference % 3600) / 60);
+    const seconds = secondsDifference % 60;
+
+    // Return an object with the calculated time components
+    return {
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+    };
+}
