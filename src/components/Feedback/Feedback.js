@@ -36,7 +36,7 @@ const Feedback = ({setBOOl}) => {
   const [addMember,setAddMember]=useState(false)
   
   const [selectedSubject,setSelectedSubject]=useState({});
-  const [active,setActive]=useState(2);
+  const [active,setActive]=useState(1);
   
   const handleCreate = async () => {
     setCreate(true);
@@ -124,7 +124,6 @@ const res = await addSubject(newitem);
       const datatoUpdate = feedback
  datatoUpdate[editIndex].subjects=res.results;
  setFeedback(datatoUpdate)
-    setSelectedItem({});
     setSelectedSubject({});
     setSelectedUser({});
     setSubjectname('');
@@ -261,7 +260,7 @@ const res = await addSubject(newitem);
                   <span className={styles.cardHeadings}>
                     Number of Students given Feedback:
                   </span>{" "}
-                  <span className={styles.cardHeadingValues}>50</span>
+                  <span className={styles.cardHeadingValues}>{item?.total_students/item.subjects.length}</span>
                 </div>
               </div>
               <div className={styles.card_content_child}>
