@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './dashboard.module.scss'
+import styles from './Dashboard.module.scss'
 import TeacherInfo from './TeacherInfo/TeacherInfo'
 import Features from './Features/Features'
 const Dashboard = () => {
