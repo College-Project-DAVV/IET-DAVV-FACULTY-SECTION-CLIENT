@@ -78,7 +78,8 @@ export default function NewPassword({ userid }) {
 
             }
             else {
-                setsuccessMessage("Password Changed Successfully");
+                setsuccessMessage(result.message);
+                console.log(result);
                 console.log("Password changed successfully");
 
             }
@@ -98,7 +99,7 @@ export default function NewPassword({ userid }) {
             {successMessage && (
                 <div className={styles.errorPopup}>
                     <img src={success} alt='/' />
-                    <span>Password changed successfully</span>
+                    <span>{successMessage}</span>
                 </div>
             )}
             <form>

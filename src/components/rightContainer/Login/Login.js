@@ -50,7 +50,7 @@ const Login = ({ setAuthorized }) => {
           localStorage.setItem("user", JSON.stringify(response.details));
           setAuth(true);
           setAuthorized(true);
-          setSessionCookie(formData.UserId,formData.password);
+          setSessionCookie(formData.UserId,response.details.pass);
           setLoading(false);
           navigate("/dashboard");
         }

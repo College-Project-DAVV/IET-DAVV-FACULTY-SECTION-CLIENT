@@ -39,8 +39,8 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       icon: attendance,
       url:"",
       request:"POST",
-      username:"username",
-      password:"password",
+      username:username,
+      password:password,
       flag:"flag"
     },
     {
@@ -59,8 +59,8 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       icon: dqac,
       url:"",
       request:"POST",
-      username:"username",
-      password:"password",
+      username:username,
+      password:password,
       flag:"flag"
     },
     {
@@ -69,8 +69,8 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       icon: downloads,
       url:"",
       request:"POST",
-      username:"username",
-      password:"password",
+      username:username,
+      password:password,
       flag:"flag"
     },
 

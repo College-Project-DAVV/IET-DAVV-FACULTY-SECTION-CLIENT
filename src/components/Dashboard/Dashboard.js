@@ -4,7 +4,7 @@ import TeacherInfo from './TeacherInfo/TeacherInfo'
 import Features from './Features/Features'
 import Feedback from '../Feedback/Feedback'
 const Dashboard = () => {
-  const [feedback,setFeedback]=useState(true)
+  const [feedback,setFeedback]=useState(false)
   const verify = localStorage.getItem("user");
   if(!verify){
     return;

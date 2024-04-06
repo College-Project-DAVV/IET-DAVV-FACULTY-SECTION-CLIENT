@@ -22,7 +22,7 @@ export default function ResetPassword() {
     const handleverify = (e, enteredcode) => {
         e.preventDefault();
         if (verifyotp + "" === code + "") {
-            console.log("Verified");
+            // console.log("Verified");
             setAuth(true);
         }
         else {
@@ -43,7 +43,7 @@ export default function ResetPassword() {
         e.preventDefault();
         setLoading(true);
         OTP(email).then((result) => {
-            console.log(result.code);
+           
             setCode(result.code);
             setOtpSent(true);
             setLoading(false);
