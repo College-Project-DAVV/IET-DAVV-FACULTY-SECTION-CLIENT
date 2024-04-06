@@ -1,8 +1,10 @@
-import React from 'react'
-import styles from './dashboard.module.scss'
+import React, { useState } from 'react'
+import styles from './Dashboard.module.scss'
 import TeacherInfo from './TeacherInfo/TeacherInfo'
 import Features from './Features/Features'
+import Feedback from '../Feedback/Feedback'
 const Dashboard = () => {
+  const [feedback,setFeedback]=useState(true)
   const verify = localStorage.getItem("user");
   if(!verify){
     return;
@@ -12,9 +14,14 @@ const Dashboard = () => {
         <div className={styles.teacherInfo}>
             <TeacherInfo/>
         </div>
-        <div className={styles.features}>
-            <Features/>
-        </div>
+    { !feedback?   <div className={styles.features}>
+            <Features setFeedback={setFeedback}/>
+        </div>:
+        <div className={styles.feedbackContainer}>
+          
+        <Feedback setBOOl={setFeedback}/>
+        </div>}
+        
     </div>
   )
 }

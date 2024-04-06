@@ -8,8 +8,8 @@ const TeacherInfo = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const info = [
     {
-      name: user?user.name:"Guest",
-      email: user?user.email:"Guest",
+      name: user?user?.name:"Guest",
+      email: user?user?.email:"Guest",
       phone: "Not Yet Added",
     },
   ];
