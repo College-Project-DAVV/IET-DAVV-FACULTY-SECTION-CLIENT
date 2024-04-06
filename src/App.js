@@ -7,7 +7,6 @@ import Search from "./components/Search/Search";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/rightContainer/Login/google_auth";
 import ResetPassword from "./components/resetpassword/ResetPassword";
-import Feedback from "./components/Feedback/Feedback";
 // import Authorizaion from "./components/resetpassword/Authorizaion";
 function App() {
   const [authorized, setAuthorized] = useState(false);
