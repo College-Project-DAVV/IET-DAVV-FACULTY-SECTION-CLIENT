@@ -3,12 +3,10 @@ import React, { useEffect, useState } from "react";
 import styles from "./Feedback.module.scss";
 import { MdCancel, MdDelete } from "react-icons/md";
 import {
-  getFaculty,
   getFeedback,
 } from "../../actions/feedbackSession";
-import { getSession } from "../../actions/session";
 import { calculateTimeDifference, formatDate, formatDateToAMPM,isPastDate, } from "../../actions/exportingFunctions";
-import { addSubject, deleteSubjects, getSubjects } from "../../actions/subjects";
+import { addSubject, deleteSubjects, getFaculty, getSubjects } from "../../actions/subjects";
 import { MdArrowCircleLeft } from "react-icons/md";
 import { MdAddCircle } from "react-icons/md";
 import TimerComponent from "./TimerComponent";
@@ -277,13 +275,13 @@ const res = await addSubject(newitem);
               <div className={styles.card_content_child}>
                 <div>
                   <span className={styles.cardHeadings}>Subject Name :</span>
-                  {item?.subjects?.map((subject, index) => (
+                  {item?.subjects.length>0?item?.subjects?.map((subject, index) => (
   <React.Fragment key={index}>
     <span className={styles.subjectList}>
       {index < item.subjects.length - 1 ? (subject.subject_name + "  ,") :subject.subject_name}
     </span>
   </React.Fragment>
-))}
+)):<p>Please Add the Subjects</p>}
 
                 </div>
               </div>
