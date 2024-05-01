@@ -281,7 +281,7 @@ const res = await addSubject(newitem);
       {index < item.subjects.length - 1 ? (subject.subject_name + "  ,") :subject.subject_name}
     </span>
   </React.Fragment>
-)):<p>Please Add the Subjects</p>}
+)):<span >Please Add Subjects</span>}
 
                 </div>
               </div>

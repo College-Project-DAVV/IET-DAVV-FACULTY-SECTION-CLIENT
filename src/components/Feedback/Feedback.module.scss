@@ -9,7 +9,7 @@
     border: 1px solid #c1c1c1;
     overflow-y: auto;
     overflow-x: hidden;
-    font-size: 1rem;
+    font-size: 2rem;
     margin: 10px;
 
 
@@ -103,19 +103,19 @@
   
       width: 100%;
       .cardHeadings {
-        font-size: 0.7rem;
+        font-size: calc(1.2rem + 0.1vw);
         font-weight: 500;
         color: black;
       }
       .cardHeadingValues {
-        font-size: 0.7rem;
+        font-size: calc(1.2rem + 0.1vw);
         font-weight: 400;
         margin-left: 10px;
 
         
       }
       .cardHeadingValues {
-          font-size: 0.8rem;
+          font-size: calc(0.9rem + 0.1vw);
           font-weight: 400;
           margin-left: 10px;
         }
