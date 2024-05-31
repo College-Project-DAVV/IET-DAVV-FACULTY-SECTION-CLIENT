@@ -37,7 +37,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       title: "Attendance",
       desc: "This allows teachers to maintain attendance of students on regular basis.",
       icon: attendance,
-      url:"",
+      url:"https://attendance.ietdavv.edu.in/",
       request:"POST",
       username:username,
       password:password,
@@ -55,7 +55,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
     },
     {
       title: "DQAC",
-      desc: "lorem ipsum",
+      desc: "Departmental Quality Assurance Cell",
       icon: dqac,
       url:"",
       request:"POST",
@@ -67,7 +67,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       title: "Downloads",
       desc: "This allows teachers to download forms and templates ",
       icon: downloads,
-      url:"",
+      url:"https://forms.ietdavv.edu.in/",
       request:"POST",
       username:username,
       password:password,
@@ -81,7 +81,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
   }
   const searchStudents = async(id)=>{
     if( getSessionCookie("UserToken") && localStorage.getItem("UserToken")){
-      //navigate("/search")
+      navigate("/search")
     }
     else{
       navigate("/googleauth");

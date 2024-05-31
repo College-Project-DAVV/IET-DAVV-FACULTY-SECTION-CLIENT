@@ -1,6 +1,6 @@
-REACT_APP_LDAP_URL = https://test.ietdavv.edu.in/server
+REACT_APP_LDAP_URL = https://faculty.ietdavv.edu.in/server
 REACT_APP_FEEDBACK_URL = http://feedback.ietdavv.edu.in/LoginServlet
 REACT_APP_FETCH_USER = https://admin.ietdavv.edu.in/server
 REACT_APP_CLIENT_ID=697918735313-nd2tikionjqd2rtsastcke349h0u2al9.apps.googleusercontent.com
-REACT_APP_REDIRECT_URI = https://test.ietdavv.edu.in/googleauth
-REACT_APP_SERVER_BASE_URL = https://test.ietdavv.edu.in/server
+REACT_APP_REDIRECT_URI = https://faculty.ietdavv.edu.in/googleauth
+REACT_APP_SERVER_BASE_URL = https://faculty.ietdavv.edu.in/server

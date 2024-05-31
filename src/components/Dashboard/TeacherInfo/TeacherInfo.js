@@ -4,7 +4,8 @@ import email from "../../../assets/email2.svg";
 import phone from "../../../assets/phone.svg";
 import { useNavigate } from "react-router-dom";
 import logout from "../../../assets/logout.svg";
-const TeacherInfo = () => {
+import close from "../../../assets/cloase.svg"
+const TeacherInfo = ({setOpenMenu,openMenu}) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const info = [
     {
@@ -20,8 +21,11 @@ const TeacherInfo = () => {
   };
   return (
     <div className={styles.teacher}>
+     <div className={styles.closeBtn} onClick={()=>{setOpenMenu(!openMenu)}}>
+     <img src={close} className={styles.closeBtnImg}/>
+      </div>
       {info.map((item, key) => (
-        <div className={styles.info} key={key}>
+        <div className={styles.info} key={key} >
           {item.src ? (
             <img src={item.profile} alt="profile" className={styles.profile} />
           ) : (

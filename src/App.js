@@ -7,7 +7,6 @@ import Search from "./components/Search/Search";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/rightContainer/Login/google_auth";
 import ResetPassword from "./components/resetpassword/ResetPassword";
-// import Authorizaion from "./components/resetpassword/Authorizaion";
 function App() {
   const [authorized, setAuthorized] = useState(false);
   
@@ -26,11 +25,6 @@ function App() {
           <Route path="/search" element={<div className={styles.search}><Search/></div>} />
           <Route path="/googleauth" element={<div className={styles.login}><Login/></div>} />
           <Route path="/resetpassword" element={<div className={styles.login}><ResetPassword/></div>} />
-          
-          {/* <Route path="/feedback" element={<div className={styles.login}><ResetPassword/></div>} /> */}
-          
-          {/* <Route path="/feedback" element={<div className={styles.feedback}><Feedback/></div>} /> */}
-          {/* <Route path="/verification" element={<div className={styles.login}><Authorizaion/></div>} /> */}
         </Routes>
       </Router>
     </div>
