@@ -10,8 +10,8 @@ export default function NewPassword({ userid }) {
     const navigate = useNavigate();
     const [showpassword1, setshowpassword1] = useState(false);
     const [showpassword2, setshowpassword2] = useState(false);
-    const [password, setPassword] = useState(null);
-    const [confirmpassword, setConfirm] = useState(null);
+    const [password, setPassword] = useState('');
+    const [confirmpassword, setConfirm] = useState('');
     const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
     const [successMessage, setsuccessMessage] = useState(null);
@@ -70,18 +70,22 @@ export default function NewPassword({ userid }) {
             setPasswordsMatch(false);
             return;
         }
+        if(password===''){
+            alert("Password Field is Required")
+            return;
+        }
+        if(password.length <=4)
+        {
+            alert("Password length should be greater then four characters")
+            return;
+        }
         setPasswordsMatch(true);
         changepassword(userid, password).then((result) => {
             if (result === 401) {
                 setErrorMessage("Unable to change password");
-                console.log("Unable to change password");
-
             }
             else {
                 setsuccessMessage(result.message);
-                console.log(result);
-                console.log("Password changed successfully");
-
             }
         })
     }

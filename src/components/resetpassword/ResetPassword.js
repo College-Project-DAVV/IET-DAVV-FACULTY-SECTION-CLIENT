@@ -32,6 +32,10 @@ export default function ResetPassword() {
     const handlesubmit = (e) => {
         e.preventDefault();
         // // setUserID('');
+        if(userid=='' || !userid){
+            alert("User Id is required")
+            return;
+        }
         setLoading(true);
         searchUser(userid).then((result) => {
             // console.log(result.details.email);
