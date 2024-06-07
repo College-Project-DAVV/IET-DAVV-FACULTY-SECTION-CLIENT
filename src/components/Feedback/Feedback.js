@@ -323,7 +323,7 @@ const res = await addSubject(newitem);
           </div>
           <p>Add Subject & Teaching Faculty</p>
             <div className={styles.inputContainer}>
-              <div className={styles.inputheading}> Subject Name</div>
+              <div className={styles.inputheading}>Subject Name/Code</div>
               <div className={styles.inputfeild}>
                 <input
                   placeholder="Search Subject"
@@ -336,7 +336,7 @@ const res = await addSubject(newitem);
                   <div className={styles.dropdownselector}>
                     {filteredsubject.map((item, index) => (
                       <div onClick={() => handleSubjectClick(item)}>
-                        {item.subject_name}
+                        {item.subject_code} {item.subject_name}
                       </div>
                     ))}
                   </div>
