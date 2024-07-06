@@ -10,9 +10,9 @@ export default function NewPassword({ userid }) {
     const navigate = useNavigate();
     const [showpassword1, setshowpassword1] = useState(false);
     const [showpassword2, setshowpassword2] = useState(false);
-    const [password, setPassword] = useState(null);
-    const [confirmpassword, setConfirm] = useState(null);
-    const [passwordsMatch, setPasswordsMatch] = useState(true); 
+    const [password, setPassword] = useState('');
+    const [confirmpassword, setConfirm] = useState('');
+    const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
     const [successMessage, setsuccessMessage] = useState(null);
     function Toggle1() {
@@ -43,7 +43,7 @@ export default function NewPassword({ userid }) {
             }, 5000);
 
             return () => clearTimeout(timeout);
-            
+
         }
         if (successMessage) {
             const timeout = setTimeout(() => {
@@ -52,7 +52,7 @@ export default function NewPassword({ userid }) {
             }, 5000);
 
             return () => clearTimeout(timeout);
-            
+
         }
     }, [errorMessage, successMessage]);
 
@@ -62,25 +62,30 @@ export default function NewPassword({ userid }) {
     const handleInputChange2 = (event) => {
         setPasswordsMatch(password === event.target.value);
         setConfirm(event.target.value);
-        
+
     };
     const handlesubmit = (e) => {
         e.preventDefault();
         if (password !== confirmpassword) {
-            setPasswordsMatch(false); 
+            setPasswordsMatch(false);
             return;
         }
-        setPasswordsMatch(true); 
+        if(password===''){
+            alert("Password Field is Required")
+            return;
+        }
+        if(password.length <=4)
+        {
+            alert("Password length should be greater then four characters")
+            return;
+        }
+        setPasswordsMatch(true);
         changepassword(userid, password).then((result) => {
             if (result === 401) {
                 setErrorMessage("Unable to change password");
-                console.log("Unable to change password");
-                
             }
             else {
-                setsuccessMessage("Password Changed Successfully");
-                console.log("Password changed successfully");
-                
+                setsuccessMessage(result.message);
             }
         })
     }
@@ -91,16 +96,16 @@ export default function NewPassword({ userid }) {
         <div className={styles.newpass}>
             {errorMessage && (
                 <div className={styles.errorPopup}>
-                    <img src = {error} alt='/'/>
+                    <img src={error} alt='/' />
                     <span>Unable to change password</span>
                 </div>
             )}
             {successMessage && (
                 <div className={styles.errorPopup}>
-                    <img src = {success} alt='/'/>
-                    <span>Password changed successfully</span>
+                    <img src={success} alt='/' />
+                    <span>{successMessage}</span>
                 </div>
-            )} 
+            )}
             <form>
                 <p>Enter New Password</p>
                 <div className={styles.field}>

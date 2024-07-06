@@ -10,7 +10,8 @@ import {useNavigate} from "react-router-dom";
 import {
   getSessionCookie
 } from "../Functions/Function";
-const Cards = () => {
+const Cards = ({setFeedback}) => {
+
   const navigate = useNavigate();
     const username = getSessionCookie("username");
     const password = getSessionCookie("pass");
@@ -18,6 +19,13 @@ const Cards = () => {
     const urlParts = currentUrl.split('/');
 const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
   const features = [
+    {
+      title: "Feedback",
+      desc: "This shows feedback about a teacher by students and parents.",
+      icon: feedback,
+      url:"/feedback",
+      flag:"flag"
+    },
     {
       title: "Search Students",
       desc: "This allows you to search students using their name, roll number, email, branch, year and other details",
@@ -29,10 +37,10 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
       title: "Attendance",
       desc: "This allows teachers to maintain attendance of students on regular basis.",
       icon: attendance,
-      url:"",
+      url:"https://attendance.ietdavv.edu.in/",
       request:"POST",
-      username:"username",
-      password:"password",
+      username:username,
+      password:password,
       flag:"flag"
     },
     {
@@ -47,34 +55,25 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
     },
     {
       title: "DQAC",
-      desc: "lorem ipsum",
+      desc: "Departmental Quality Assurance Cell",
       icon: dqac,
       url:"",
       request:"POST",
-      username:"username",
-      password:"password",
+      username:username,
+      password:password,
       flag:"flag"
     },
     {
       title: "Downloads",
       desc: "This allows teachers to download forms and templates ",
       icon: downloads,
-      url:"",
+      url:"https://forms.ietdavv.edu.in/",
       request:"POST",
-      username:"username",
-      password:"password",
+      username:username,
+      password:password,
       flag:"flag"
     },
-    {
-      title: "Feedback",
-      desc: "This shows feedback about a teacher by students and parents.",
-      icon: feedback,
-      url:"http://feedback.ietdavv.edu.in/LoginServlet",
-      request:"POST",
-      username:"username",
-      password:"password",
-      flag:"login_type"
-    },
+
   ];
   const submitForm=(id)=>{
     var form = document.getElementById(id);
@@ -82,11 +81,20 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
   }
   const searchStudents = async(id)=>{
     if( getSessionCookie("UserToken") && localStorage.getItem("UserToken")){
-      //navigate("/search")
+      navigate("/search")
     }
     else{
       navigate("/googleauth");
     }
+  }
+  const handleCardClick=(key,title)=>{
+    if(title==="Search Students")
+    {searchStudents(key)}
+    else if (title==="Feedback"){
+      setFeedback(true)
+      
+    }
+     else{submitForm(key)}
   }
   return (
     <div className={styles.cards}>
@@ -97,7 +105,7 @@ const baseUrl = `${urlParts[0]}//${urlParts[2]}`;
         <input type="hidden" name={feature.password} id={feature.password} value={password?password:"null"} />
         <input type="hidden" name={feature.flag} id={feature.flag} value='faculty'/>
       </form>
-        <div className={styles.card} key={key} onClick={()=>{feature.title==="Search Students"?searchStudents(key): submitForm(key)}}>
+        <div className={styles.card} key={key} onClick={()=>{handleCardClick(key,feature.title)}}>
           <div className={styles.iconbg}>
             <img src={feature.icon} alt="icon" className={styles.icon} />
           </div>

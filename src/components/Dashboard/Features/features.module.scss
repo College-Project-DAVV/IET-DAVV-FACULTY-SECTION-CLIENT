@@ -11,6 +11,18 @@
     .cards{
         display: flex;
     }
+    .head{
+        .menu{
+            img{
+                filter: brightness(0%);
+                float: left;
+                margin: 2rem 1rem;
+            }
+        }
+        .menu:hover{
+            cursor: pointer;
+        }
+    }
 }
 .features::-webkit-scrollbar{
     display: none;

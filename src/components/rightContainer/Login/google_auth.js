@@ -37,7 +37,7 @@ const Login = () => {
       .catch((error) => {
         setLoginStatus(true);
         // navigate("/dashboard")
-        // alert("Google Login Failed. Please Try Again")
+        alert("Google Login Failed. Please Try Again")
         console.error("Error:", error);
       });
   };

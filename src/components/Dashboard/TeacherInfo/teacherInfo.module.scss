@@ -7,8 +7,21 @@
     box-shadow: 4px 4px 35px 0px rgba(0, 0, 0, 0.25);
     color: white;
     min-width: 350px;
-    //width: fit-content;
     white-space: nowrap;
+    .closeBtn{
+        width: 100%;
+        .closeBtnImg{
+            float: right;
+            width: calc(2rem + 2rem);
+            // @media screen and (min-width : 768px) {
+            //     display: none;
+            // }
+        }   
+    }
+    .closeBtn:hover{
+        cursor: pointer;
+    }
+
     .info{
         display: flex;
         flex-direction: column;

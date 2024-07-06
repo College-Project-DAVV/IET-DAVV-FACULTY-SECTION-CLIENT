@@ -22,7 +22,7 @@ export default function ResetPassword() {
     const handleverify = (e, enteredcode) => {
         e.preventDefault();
         if (verifyotp + "" === code + "") {
-            console.log("Verified");
+            // console.log("Verified");
             setAuth(true);
         }
         else {
@@ -32,6 +32,10 @@ export default function ResetPassword() {
     const handlesubmit = (e) => {
         e.preventDefault();
         // // setUserID('');
+        if(userid=='' || !userid){
+            alert("User Id is required")
+            return;
+        }
         setLoading(true);
         searchUser(userid).then((result) => {
             // console.log(result.details.email);
@@ -43,7 +47,7 @@ export default function ResetPassword() {
         e.preventDefault();
         setLoading(true);
         OTP(email).then((result) => {
-            console.log(result.code);
+           
             setCode(result.code);
             setOtpSent(true);
             setLoading(false);

@@ -8,11 +8,22 @@
   width: 100vw;
   background: #EFF1F7;
   .dashboard{
-    width: 100vw;   
+    width: 100vw;  
+    height: 100vh; 
   }
   .search{
     width: 100vw;
     align-self: flex-start;
     justify-self: flex-start;
+    
+  }
+  .feedback{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid red;
+    padding: 30px 50px;
+
   }
 }
